@@ -1,3 +1,5 @@
+import {hidePreview} from "./previewController.js";
+
 const openModal = (modal, modalOpenClass) => {
 	modal.classList.add(modalOpenClass);
 };
@@ -19,8 +21,10 @@ export const modalController = ({
 	});
 
 	modal.addEventListener('click', (e) => {
-		if (e.target === modal || e.target.classList.contains(modalClassClose)) {
+		if (e.target === modal || e.target.classList.contains(
+			modalClassClose)) {
 			closeModal(modal, modalOpenClass);
+			hidePreview();
 		}
 	})
 }
