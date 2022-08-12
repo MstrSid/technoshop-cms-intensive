@@ -1,4 +1,4 @@
-import {preview, form, fieldsForm} from "./elems.js";
+import {preview, form, fieldsForm, image} from "./elems.js";
 import {toBase64} from "./tools.js";
 
 const showPreview = (src) => {
@@ -16,7 +16,7 @@ export const hidePreview = () => {
 
 export const previewController = () => {
 	const imageFile = form.image;
-	imageFile.addEventListener('change', async () => {
+	image.addEventListener('change', async () => {
 		if (imageFile.files.length) {
 			const src = await toBase64(imageFile.files[0]);
 			showPreview(src);
