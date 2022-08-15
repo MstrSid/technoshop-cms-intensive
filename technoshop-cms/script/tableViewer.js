@@ -3,15 +3,14 @@ import {currencyFormatRUB} from "./tools.js";
 
 export const tableRender = (goods) => {
 	tableGoods.textContent = '';
-	const fullTr = goods.map(item => createRow(item));
-	tableGoods.append(...fullTr);
+	goods.forEach(createRow);
 };
 
-const createRow = ({id, title, category, price}) => {
-	const tr = document.createElement('tr');
-	tr.classList.add('table-row', 'table-goods-item');
-	tr['data-id'] = id;
-	tr.insertAdjacentHTML('beforeend', `
+export const createRow = ({id, title, category, price}) => {
+	const goodsRow = document.createElement('tr');
+	goodsRow.classList.add('table-row', 'table-goods-item');
+	goodsRow.dataset.id = id;
+	goodsRow.innerHTML = `
             <td>${id}</td>
             <td>${title}</td>
             <td>${category}</td>
@@ -23,6 +22,6 @@ const createRow = ({id, title, category, price}) => {
                 </svg>
               </button>
             </td>
-		`);
-	return tr;
+		`;
+	tableGoods.append(goodsRow);
 };

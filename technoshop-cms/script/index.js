@@ -1,4 +1,4 @@
-import {modalBtnOpen, modal} from './elems.js';
+import {modalBtnOpen} from './elems.js';
 import {modalController} from "./modalController.js";
 import {previewController} from "./previewController.js";
 import {tableController} from "./tableController.js";
@@ -8,10 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const init = () => {
 		modalController({
-			modal: modal,
 			modalBtnOpen: modalBtnOpen,
-			modalClassClose: "btn-close",
-			modalOpenClass: "d-block"
 		});
 
 		previewController();

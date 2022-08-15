@@ -1,10 +1,10 @@
 import {preview, form, fieldsForm} from "./elems.js";
 import {toBase64} from "./tools.js";
 
-const showPreview = (src) => {
+export const showPreview = (src) => {
 	preview.style.display = 'block';
 	preview.src = src;
-}
+};
 
 export const hidePreview = () => {
 	preview.style.display = '';
@@ -12,7 +12,7 @@ export const hidePreview = () => {
 	fieldsForm.forEach(item => {
 		item.value = '';
 	});
-}
+};
 
 export const previewController = () => {
 	const imageFile = form.image;
@@ -22,4 +22,4 @@ export const previewController = () => {
 			showPreview(src);
 		}
 	});
-}
+};
